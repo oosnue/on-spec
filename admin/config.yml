@@ -24,87 +24,78 @@ collections:
                 widget: "object"
                 summary: "{{fields.title}}"
                 fields:
-                  - {label: "ID (unique, no spaces)", name: "id", widget: "string"}
+                  - {label: "ID (short, unique, no spaces — e.g. g7)", name: "id", widget: "string"}
                   - {label: "Type", name: "type", widget: "hidden", default: "gear"}
                   - label: "Category"
                     name: "cat"
                     widget: "select"
                     options: ["Tent", "Backpack", "Sleeping Bag", "Apparel", "Other Gear"]
-                  - {label: "Mini tag (e.g. weight shown on card)", name: "miniTag", widget: "string", required: false}
-                  - {label: "Icon (single emoji)", name: "icon", widget: "string"}
-                  - {label: "Sponsored post", name: "sponsored", widget: "boolean", default: false}
                   - {label: "Title", name: "title", widget: "string"}
-                  - {label: "One-line angle (shown on card)", name: "angle", widget: "text"}
+                  - {label: "Preview line (shown on the card)", name: "angle", widget: "text"}
+                  - {label: "Icon (single emoji)", name: "icon", widget: "string", default: "📦"}
+                  - {label: "Mini tag (e.g. weight, shown on card)", name: "miniTag", widget: "string", required: false}
+                  - {label: "Sponsored post", name: "sponsored", widget: "boolean", default: false}
                   - {label: "Author", name: "author", widget: "string"}
                   - {label: "Date (e.g. Aug 9, 2026)", name: "date", widget: "string"}
-                  - label: "Spec rows"
-                    name: "specRows"
-                    widget: "list"
-                    fields:
-                      - {label: "Label", name: "label", widget: "string"}
-                      - {label: "Value", name: "value", widget: "string"}
-                  - {label: "Developer verdict", name: "verdict", widget: "text"}
-                  - label: "Body sections"
+                  - label: "Key specs"
+                    name: "specText"
+                    widget: "text"
+                    hint: "One per line, like: Weight: 1,180 g"
+                  - {label: "Developer verdict (one short paragraph)", name: "verdict", widget: "text"}
+                  - label: "Body"
                     name: "body"
-                    widget: "list"
-                    fields:
-                      - {label: "Heading", name: "h", widget: "string"}
-                      - {label: "Paragraph", name: "p", widget: "text"}
-                      - {label: "Pull quote (optional)", name: "pull", widget: "text", required: false}
+                    widget: "markdown"
+                    hint: "Write freely. Use ## for a subheading, and > for a highlighted pull quote."
+                    buttons: ["bold", "italic", "link"]
+                    editor_components: []
 
               - label: "On Trail — trail report"
                 name: "trail"
                 widget: "object"
                 summary: "{{fields.title}}"
                 fields:
-                  - {label: "ID (unique, no spaces)", name: "id", widget: "string"}
+                  - {label: "ID (short, unique, no spaces — e.g. t4)", name: "id", widget: "string"}
                   - {label: "Type", name: "type", widget: "hidden", default: "trail"}
                   - {label: "Region (e.g. Washington)", name: "cat", widget: "string"}
-                  - {label: "Mini tag (e.g. distance shown on card)", name: "miniTag", widget: "string", required: false}
-                  - {label: "Icon (single emoji)", name: "icon", widget: "string"}
                   - {label: "Title", name: "title", widget: "string"}
-                  - {label: "One-line angle (shown on card)", name: "angle", widget: "text"}
+                  - {label: "Preview line (shown on the card)", name: "angle", widget: "text"}
+                  - {label: "Icon (single emoji)", name: "icon", widget: "string", default: "🥾"}
+                  - {label: "Mini tag (e.g. distance, shown on card)", name: "miniTag", widget: "string", required: false}
                   - {label: "Author", name: "author", widget: "string"}
                   - {label: "Date (e.g. Aug 9, 2026)", name: "date", widget: "string"}
-                  - label: "Trail spec rows"
-                    name: "specRows"
-                    widget: "list"
-                    fields:
-                      - {label: "Label", name: "label", widget: "string"}
-                      - {label: "Value", name: "value", widget: "string"}
-                  - {label: "Field notes (verdict)", name: "verdict", widget: "text"}
-                  - label: "Body sections"
+                  - label: "Trail specs"
+                    name: "specText"
+                    widget: "text"
+                    hint: "One per line, like: Distance: 18.5 mi"
+                  - {label: "Field notes (one short paragraph)", name: "verdict", widget: "text"}
+                  - label: "Body"
                     name: "body"
-                    widget: "list"
-                    fields:
-                      - {label: "Heading", name: "h", widget: "string"}
-                      - {label: "Paragraph", name: "p", widget: "text"}
-                      - {label: "Pull quote (optional)", name: "pull", widget: "text", required: false}
+                    widget: "markdown"
+                    hint: "Write freely. Use ## for a subheading, and > for a highlighted pull quote."
+                    buttons: ["bold", "italic", "link"]
+                    editor_components: []
 
               - label: "On Air — news"
                 name: "air"
                 widget: "object"
                 summary: "{{fields.title}}"
                 fields:
-                  - {label: "ID (unique, no spaces)", name: "id", widget: "string"}
+                  - {label: "ID (short, unique, no spaces — e.g. a4)", name: "id", widget: "string"}
                   - {label: "Type", name: "type", widget: "hidden", default: "air"}
                   - {label: "Topic (e.g. Materials)", name: "cat", widget: "string"}
-                  - {label: "Icon (single emoji)", name: "icon", widget: "string"}
                   - {label: "Title", name: "title", widget: "string"}
-                  - {label: "One-line angle (shown on card)", name: "angle", widget: "text"}
+                  - {label: "Preview line (shown on the card)", name: "angle", widget: "text"}
+                  - {label: "Icon (single emoji)", name: "icon", widget: "string", default: "📰"}
                   - {label: "Author", name: "author", widget: "string", default: "Editorial"}
                   - {label: "Date (e.g. Aug 9, 2026)", name: "date", widget: "string"}
-                  - label: "At a glance rows"
-                    name: "specRows"
-                    widget: "list"
-                    fields:
-                      - {label: "Label", name: "label", widget: "string"}
-                      - {label: "Value", name: "value", widget: "string"}
-                  - {label: "Why it matters (verdict)", name: "verdict", widget: "text"}
-                  - label: "Body sections"
+                  - label: "At a glance"
+                    name: "specText"
+                    widget: "text"
+                    hint: "One per line, like: Topic: Materials"
+                  - {label: "Why it matters (one short paragraph)", name: "verdict", widget: "text"}
+                  - label: "Body"
                     name: "body"
-                    widget: "list"
-                    fields:
-                      - {label: "Heading", name: "h", widget: "string"}
-                      - {label: "Paragraph", name: "p", widget: "text"}
-                      - {label: "Pull quote (optional)", name: "pull", widget: "text", required: false}
+                    widget: "markdown"
+                    hint: "Write freely. Use ## for a subheading, and > for a highlighted pull quote."
+                    buttons: ["bold", "italic", "link"]
+                    editor_components: []
