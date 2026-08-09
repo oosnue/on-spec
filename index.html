@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON SPEC — Gear reviewed by the people who build it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4EE;
+    --paper-alt:#E9EBE1;
+    --ink:#1C231F;
+    --ink-soft:#59665C;
+    --line:#CBCFC1;
+    --stamp:#FF5A1E;
+    --stamp-tint:#FFEAE0;
+    --steel:#3B6D11;
+    --amber:#854F0B;
+    --amber-tint:#FAEEDA;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .hidden{display:none !important;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  @media(max-width:640px){.wrap{padding:0 18px;}}
+
+  header{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--line);}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:24px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:10px; cursor:pointer;}
+  .stamp-mark{width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .stamp-mark svg{width:26px; height:26px;}
+  .wordmark{font-family:'IBM Plex Mono'; font-weight:700; font-size:18px; letter-spacing:0.5px;}
+  .wordmark small{display:block; font-family:'IBM Plex Sans'; font-weight:400; font-size:10.5px; color:var(--ink-soft); letter-spacing:0.2px; margin-top:1px;}
+  nav.cats{display:flex; gap:26px; flex-wrap:wrap;}
+  nav.cats a{font-size:14.5px; font-weight:600; color:var(--ink-soft); padding:6px 0; border-bottom:2px solid transparent; cursor:pointer; font-family:'IBM Plex Mono';}
+  nav.cats a:hover, nav.cats a.active{color:var(--ink); border-color:var(--stamp);}
+
+  .hero{padding:56px 0 0;}
+  .hero-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:end;}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; font-weight:600; color:var(--stamp); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--stamp);}
+  .hero h1{font-size:44px; font-weight:700; line-height:1.2; letter-spacing:-0.5px; margin-bottom:18px;}
+  @media(max-width:640px){.hero h1{font-size:30px;}}
+  .hero p.lead{font-size:15.5px; color:var(--ink-soft); max-width:480px; margin-bottom:14px;}
+  .definition{font-size:13px; color:var(--ink-soft); max-width:480px; margin-bottom:26px; border-left:2px solid var(--line); padding-left:12px;}
+  .definition b{color:var(--ink); font-family:'IBM Plex Mono'; font-weight:600;}
+  .spectag-large{background:var(--ink); color:var(--paper); padding:22px 22px 18px; position:relative; transform:rotate(1.6deg); box-shadow:0 14px 30px rgba(28,35,31,0.18); max-width:340px; margin-left:auto;}
+  .spectag-large::before{content:''; position:absolute; left:-9px; top:20px; width:18px; height:18px; border-radius:50%; background:var(--paper); border:2px solid var(--ink);}
+  .spectag-large .tag-row{display:flex; justify-content:space-between; font-family:'IBM Plex Mono'; font-size:11.5px; padding:6px 0; border-bottom:1px dashed rgba(243,244,238,0.28);}
+  .spectag-large .tag-row:last-child{border-bottom:none;}
+  .spectag-large .tag-row span:first-child{color:rgba(243,244,238,0.55);}
+  .spectag-large .tag-head{font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:2px; color:#FF9466; margin-bottom:12px;}
+
+  .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:48px;}
+  @media(max-width:760px){.pillars{grid-template-columns:1fr;}}
+  .pillar{background:var(--paper); padding:26px 24px; cursor:pointer;}
+  .pillar:hover{background:var(--white);}
+  .pillar .p-head{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .pillar .p-tag{font-family:'IBM Plex Mono'; font-size:11px; font-weight:700; letter-spacing:1px; color:var(--stamp);}
+  .pillar h3{font-size:17px; font-weight:700;}
+  .pillar p{font-size:13px; color:var(--ink-soft); line-height:1.55;}
+
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin:64px 0 24px; padding-bottom:14px; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:10px;}
+  .section-head .sh-label{display:flex; align-items:baseline; gap:10px;}
+  .section-head .sh-tag{font-family:'IBM Plex Mono'; font-size:11px; font-weight:700; color:var(--stamp); letter-spacing:1px;}
+  .section-head h2{font-size:21px; font-weight:700; letter-spacing:-0.2px;}
+  .section-head .see-all{font-family:'IBM Plex Mono'; font-size:12px; font-weight:600; color:var(--ink-soft); cursor:pointer;}
+  .section-head .see-all:hover{color:var(--stamp);}
+
+  .grid-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  @media(max-width:900px){.grid-cards{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.grid-cards{grid-template-columns:1fr;}}
+  .card{cursor:pointer; position:relative;}
+  .card .thumb{aspect-ratio:4/3; background:var(--paper-alt); border:1px solid var(--line); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;}
+  .card .thumb .icon{font-size:38px; opacity:0.35;}
+  .card .badge{position:absolute; top:10px; left:10px; background:var(--white); border:1px solid var(--ink); font-family:'IBM Plex Mono'; font-size:10.5px; font-weight:600; padding:3px 8px; letter-spacing:0.3px;}
+  .card .badge.sponsored{background:var(--amber-tint); border-color:var(--amber); color:var(--amber);}
+  .card .spectag-mini{position:absolute; bottom:-10px; right:12px; background:var(--ink); color:var(--paper); font-family:'IBM Plex Mono'; font-size:10.5px; font-weight:600; padding:6px 10px; transform:rotate(-2deg); box-shadow:0 6px 14px rgba(28,35,31,0.22);}
+  .card .meta{font-family:'IBM Plex Mono'; font-size:11px; color:var(--ink-soft); margin:20px 0 8px; display:flex; gap:10px; text-transform:uppercase; letter-spacing:0.4px;}
+  .card .meta .cat{color:var(--steel); font-weight:600;}
+  .card h3{font-size:17px; font-weight:600; line-height:1.4; margin-bottom:8px;}
+  .card .angle{font-size:13px; color:var(--ink-soft); line-height:1.55;}
+
+  .cat-strip{display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:24px;}
+  @media(max-width:760px){.cat-strip{grid-template-columns:repeat(2,1fr);}}
+  .cat-strip a{background:var(--paper); padding:20px 14px; text-align:center; font-size:13px; font-weight:600; cursor:pointer;}
+  .cat-strip a:hover{background:var(--white); color:var(--stamp);}
+  .cat-strip a .n{display:block; font-family:'IBM Plex Mono'; font-size:10px; color:var(--ink-soft); margin-bottom:6px; font-weight:400;}
+
+  footer{border-top:1px solid var(--line); margin-top:80px; padding:36px 0 50px;}
+  footer .f-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:12.5px; color:var(--ink-soft);}
+  footer .f-brand{display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-weight:700; color:var(--ink); margin-bottom:8px;}
+
+  .list-header{padding:44px 0 8px;}
+  .list-header h1{font-size:32px; font-weight:700; margin-bottom:6px;}
+  .list-header p{font-size:13.5px; color:var(--ink-soft);}
+  .filter-bar{display:flex; gap:10px; flex-wrap:wrap; padding:20px 0 34px; border-bottom:1px solid var(--line); margin-bottom:36px;}
+  .chip{font-family:'IBM Plex Mono'; font-size:12px; font-weight:600; border:1px solid var(--line); padding:8px 14px; cursor:pointer; background:var(--white); color:var(--ink-soft);}
+  .chip:hover{border-color:var(--ink); color:var(--ink);}
+  .chip.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+
+  .detail-top{padding:44px 0 0;}
+  .back-link{font-family:'IBM Plex Mono'; font-size:12px; color:var(--ink-soft); cursor:pointer; display:inline-flex; align-items:center; gap:6px; margin-bottom:24px;}
+  .back-link:hover{color:var(--stamp);}
+  .detail-meta-row{display:flex; gap:14px; align-items:center; margin-bottom:16px; flex-wrap:wrap;}
+  .detail-top h1{font-size:34px; font-weight:700; line-height:1.28; max-width:760px; margin-bottom:16px;}
+  @media(max-width:640px){.detail-top h1{font-size:25px;}}
+  .byline{font-family:'IBM Plex Mono'; font-size:12px; color:var(--ink-soft); margin-bottom:32px;}
+  .byline b{color:var(--ink);}
+  .detail-layout{display:grid; grid-template-columns:1fr 300px; gap:52px; padding-bottom:60px;}
+  @media(max-width:900px){.detail-layout{grid-template-columns:1fr;}}
+  .detail-hero-img{aspect-ratio:16/9; background:var(--paper-alt); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; margin-bottom:36px;}
+  .detail-hero-img .icon{font-size:50px; opacity:0.3;}
+  .article-body h2{font-size:19px; font-weight:700; margin:36px 0 14px;}
+  .article-body h2:first-child{margin-top:0;}
+  .article-body p{font-size:15px; color:#2C332E; line-height:1.85; margin-bottom:14px;}
+  .article-body .pull{border-left:3px solid var(--stamp); padding:4px 0 4px 18px; font-size:15px; color:var(--ink); font-weight:500; margin:24px 0;}
+  .spec-panel{border:1px solid var(--ink); position:sticky; top:90px; height:fit-content;}
+  .spec-panel .sp-head{background:var(--ink); color:var(--paper); font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:2px; padding:12px 16px;}
+  .spec-panel .sp-row{display:flex; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid var(--line); font-size:13px;}
+  .spec-panel .sp-row:last-child{border-bottom:none;}
+  .spec-panel .sp-row span:first-child{color:var(--ink-soft);}
+  .spec-panel .sp-row span:last-child{font-family:'IBM Plex Mono'; font-weight:600; text-align:right;}
+  .spec-panel .sp-verdict{padding:16px; background:var(--stamp-tint); font-size:13px; line-height:1.6;}
+  .spec-panel .sp-verdict b{display:block; font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:1px; color:var(--stamp); margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" onclick="goSection('home')">
+      <span class="stamp-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#3B6D11" stroke-width="2.2"/><circle cx="12" cy="12" r="2.6" fill="#FF5A1E"/></svg></span>
+      <span class="wordmark">ON SPEC<small>developer's gear notes</small></span>
+    </a>
+    <nav class="cats" id="cat-nav">
+      <a data-s="gear" onclick="goSection('gear')">On Spec</a>
+      <a data-s="trail" onclick="goSection('trail')">On Trail</a>
+      <a data-s="air" onclick="goSection('air')">On Air</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<main id="view-home">
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">designed by someone who cuts the pattern</div>
+        <h1>On spec doesn't mean<br>on purpose.</h1>
+        <p class="lead">Written by a product developer at Sierra Designs. Every review checks whether the engineering behind the numbers was actually built for what you're using it for — not just whether the spec sheet checks out.</p>
+        <div class="definition"><b>on spec</b> (adj.) — built to meet a defined standard. Also: done just in case, with no guarantee it'll hold.</div>
+      </div>
+      <div class="spectag-large">
+        <div class="tag-head">REVIEW SPEC — SAMPLE</div>
+        <div class="tag-row"><span>ARTICLE</span><span>Trailmate 45L</span></div>
+        <div class="tag-row"><span>SHELL</span><span>210D ripstop</span></div>
+        <div class="tag-row"><span>WEIGHT</span><span>1,180 g</span></div>
+        <div class="tag-row"><span>SEAM</span><span>bonded + stitched</span></div>
+        <div class="tag-row"><span>REV.</span><span>1.2</span></div>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar" onclick="goSection('gear')"><div class="p-head"><span class="p-tag">01</span><h3>On Spec</h3></div><p>Gear item reviews — tents, packs, bags, apparel, and everything else, reviewed by the people who design it.</p></div>
+      <div class="pillar" onclick="goSection('trail')"><div class="p-head"><span class="p-tag">02</span><h3>On Trail</h3></div><p>Field reports from the actual routes we hike to put that gear through its paces.</p></div>
+      <div class="pillar" onclick="goSection('air')"><div class="p-head"><span class="p-tag">03</span><h3>On Air</h3></div><p>What's moving in outdoor gear and industry right now.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head"><div class="sh-label"><span class="sh-tag">01 / ON SPEC</span><h2>Latest gear reviews</h2></div><span class="see-all" onclick="goSection('gear')">See all →</span></div>
+    <div class="grid-cards" id="home-gear-grid"></div>
+    <div class="cat-strip" id="home-cat-strip"></div>
+
+    <div class="section-head"><div class="sh-label"><span class="sh-tag">02 / ON TRAIL</span><h2>Latest trail reports</h2></div><span class="see-all" onclick="goSection('trail')">See all →</span></div>
+    <div class="grid-cards" id="home-trail-grid"></div>
+
+    <div class="section-head"><div class="sh-label"><span class="sh-tag">03 / ON AIR</span><h2>Latest news</h2></div><span class="see-all" onclick="goSection('air')">See all →</span></div>
+    <div class="grid-cards" id="home-air-grid"></div>
+  </section>
+</main>
+
+<!-- ============ LIST ============ -->
+<main id="view-list" class="hidden">
+  <div class="wrap list-header">
+    <div class="eyebrow" id="list-eyebrow">on spec</div>
+    <h1 id="list-title">On Spec</h1>
+    <p id="list-desc"></p>
+  </div>
+  <div class="wrap">
+    <div class="filter-bar" id="filter-bar"></div>
+    <div class="grid-cards" id="list-grid"></div>
+  </div>
+</main>
+
+<!-- ============ DETAIL ============ -->
+<main id="view-detail" class="hidden">
+  <div class="wrap detail-top">
+    <span class="back-link" id="back-link" onclick="goSection('gear')">← Back</span>
+    <div class="detail-meta-row" id="detail-badges"></div>
+    <h1 id="detail-title"></h1>
+    <div class="byline" id="detail-byline"></div>
+  </div>
+  <div class="wrap detail-layout">
+    <div>
+      <div class="detail-hero-img"><span class="icon" id="detail-icon">◆</span></div>
+      <div class="article-body" id="detail-body"></div>
+    </div>
+    <aside class="spec-panel" id="detail-spec"></aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap f-row">
+    <div>
+      <div class="f-brand">
+        <span class="stamp-mark" style="width:22px; height:22px;"><svg viewBox="0 0 24 24" fill="none" style="width:20px; height:20px;"><circle cx="12" cy="12" r="8.5" stroke="#3B6D11" stroke-width="2.2"/><circle cx="12" cy="12" r="2.6" fill="#FF5A1E"/></svg></span>
+        ON SPEC
+      </div>
+      <div>On Spec · On Trail · On Air — written by a developer at Sierra Designs.</div>
+    </div>
+    <div>© 2026 ON SPEC. Prototype layout — not a live site.</div>
+  </div>
+</footer>
+
+<script>
+const GEAR_CATS = ['All','Tent','Backpack','Sleeping Bag','Apparel','Other Gear'];
+
+const GEAR = [
+  { id:'g1', type:'gear', cat:'Backpack', miniTag:'1,180 g', icon:'🎒', sponsored:false,
+    title:'The Trailmate 45L: pull the frame, and the weight goes where, exactly?',
+    angle:'Frameless doesn\'t remove weight — it relocates it, onto your packing skill.',
+    author:'Dan Kim', date:'Aug 2, 2026',
+    specHead:'PRODUCT SPEC', verdictLabel:'Developer verdict',
+    specRows:[['Weight','1,180 g'],['Material','210D ripstop nylon'],['Waterproofing','PU coating, 1,500mm'],['Seams/build','bonded + stitched'],['Price','$179']],
+    verdict:'Cutting the frame reads as clever, but it just shifts the load-bearing job onto the user\'s pack technique. Fine under 15kg. Below that, it punishes sloppy packing.',
+    body:[
+      {h:'Why pull the frame', p:'The most obvious way to cut weight is to remove the heaviest part. An aluminum stay typically accounts for 12-15% of a pack\'s total weight. This pack swaps the stay for a single dense foam pad.'},
+      {h:'What the field test showed', p:'Loosely packed, the back panel collapsed and the load shifted from the hip belt straight to the shoulders. Compressed into a tight roll-top cylinder, though, the foam pad did a passable job standing in for a real frame.', pull:'This isn\'t a weight-saving design. It\'s a design that hands the weight problem to the user.'},
+      {h:'What the stitching says about cost-cutting', p:'Where the shoulder straps meet the body, the maker layered stitching over a bonded seam — an admission that adhesive alone won\'t survive repeat loading. That seam held up better than expected.'}
+    ]
+  },
+  { id:'g2', type:'gear', cat:'Tent', miniTag:'1,090 g', icon:'⛺', sponsored:true,
+    title:'A 2-person silnylon shelter at 1,090g — the secret is in the poles',
+    angle:'Repositioning a pole did more for total weight than any fabric swap could.',
+    author:'Seoyeon Park', date:'Jul 28, 2026',
+    specHead:'PRODUCT SPEC', verdictLabel:'Developer verdict',
+    specRows:[['Weight','1,090 g'],['Material','15D silnylon'],['Waterproofing','Silicone coating, 3,000mm'],['Seams/build','fully taped'],['Price','$395']],
+    verdict:'Fabric-level weight savings are basically maxed out industry-wide. This tent shows where the next round of cuts actually comes from: structure, not material.',
+    body:[
+      {h:'It\'s structure, not fabric', p:'15D silnylon is close to the industry standard at this point. This tent beats its competitors on weight not because of the fabric, but because it shifted one pole into a diagonal single-pole layout.'},
+      {h:'The trade-off in that diagonal pole', p:'Total pole length dropped by 18cm, but so did the structure\'s ability to hold shape in strong wind. Above roughly 27mph, wall flutter was noticeable in the field.', pull:'When something gets lighter, the review\'s job is to find out where the stability budget went.'},
+      {h:'A seam-taping detail worth flagging', p:'Hydrostatic head is solid on paper, but the seam tape width is narrow enough that long-term delamination is a real risk.'}
+    ]
+  },
+  { id:'g3', type:'gear', cat:'Sleeping Bag', miniTag:'760 g', icon:'🛏️', sponsored:false,
+    title:'750-fill goose down, and baffle geometry beat fill power for warmth',
+    angle:'Same fill power, different baffle layout — and the measured warmth wasn\'t close.',
+    author:'Hyunwoo Lee', date:'Jul 15, 2026',
+    specHead:'PRODUCT SPEC', verdictLabel:'Developer verdict',
+    specRows:[['Weight','760 g'],['Material','750-fill goose down'],['Waterproofing','DWR-treated outer'],['Seams/build','box-wall baffles'],['Price','$355']],
+    verdict:'A textbook case for why fill-power alone is a bad way to shop for a bag. Baffle construction has to be part of the comparison.',
+    body:[
+      {h:'What box-wall baffles actually buy you', p:'A single-quilt construction lets down migrate and creates cold spots. This bag uses box-wall baffles to physically wall off each section, blocking down migration.'},
+      {h:'Running the weight-to-warmth math', p:'At 750-fill and 760g total, this bag is packing roughly 8% more down than similarly-rated competitors.', pull:'One number on a spec sheet never tells you what got cut to hit it.'}
+    ]
+  },
+  { id:'g4', type:'gear', cat:'Apparel', miniTag:'340 g', icon:'🧥', sponsored:false,
+    title:'A 3-layer hard shell that cut seams and traded away margin instead',
+    angle:'A cleaner pattern with fewer panels saved fabric waste less than expected.',
+    author:'Minseok Choi', date:'Jul 3, 2026',
+    specHead:'PRODUCT SPEC', verdictLabel:'Developer verdict',
+    specRows:[['Weight','340 g'],['Material','3-layer nylon, PU membrane'],['Waterproofing','20,000mm / 15,000g breathability'],['Seams/build','fully taped'],['Price','$495']],
+    verdict:'Cutting panel count is a genuinely good call, mechanically and visually. It just didn\'t save as much on cost as expected, because cutting waste went up.',
+    body:[
+      {h:'Why cut the panel count', p:'This jacket cuts its raglan shoulder-to-arm pattern as a single piece, reducing a typical 4-panel construction to 2 panels.'},
+      {h:'What that felt like in the field', p:'The simplified pattern noticeably reduced hem-lift when reaching overhead — very noticeable during climbing movement.'},
+      {h:'The cost side of the ledger', p:'Cutting one wide piece from the roll produced more scrap than a smaller multi-panel layout would.', pull:'Cutting seams is always a trade somewhere between waterproofing and cost — never neither.'}
+    ]
+  },
+  { id:'g5', type:'gear', cat:'Other Gear', miniTag:'268 g', icon:'👟', sponsored:false,
+    title:'A 2-degree rocker change in this trail runner\'s midsole shifted the whole gait',
+    angle:'Midsole geometry mattered more to fatigue than shoe weight did.',
+    author:'Haneul Jung', date:'Jun 20, 2026',
+    specHead:'PRODUCT SPEC', verdictLabel:'Developer verdict',
+    specRows:[['Weight','268 g (US9)'],['Material','EVA/TPU composite midsole'],['Waterproofing','non-waterproof mesh upper'],['Seams/build','no-sew bonded upper'],['Price','$149']],
+    verdict:'A weight-first spec sheet misses the bigger story here. Rocker geometry made the measurable difference on long miles.',
+    body:[
+      {h:'What "rocker angle" means', p:'It\'s the rotation angle of the foot from ground contact to toe-off. This shoe increased rocker angle by 2 degrees over its predecessor.'},
+      {h:'20 kilometers of field testing', p:'Calf fatigue was clearly lower — but ground-feel on descents got noticeably duller.'}
+    ]
+  },
+  { id:'g6', type:'gear', cat:'Other Gear', miniTag:'218 g', icon:'🔦', sponsored:true,
+    title:'Lever lock vs. twist lock: the weight difference was 6 grams',
+    angle:'Weight was a wash. Cold-weather grip is where the two systems actually diverge.',
+    author:'Dan Kim', date:'Jun 5, 2026',
+    specHead:'PRODUCT SPEC', verdictLabel:'Developer verdict',
+    specRows:[['Weight','218 g (per pole)'],['Material','7075 aluminum, 3-section'],['Waterproofing','n/a'],['Seams/build','n/a'],['Price','$89']],
+    verdict:'On paper the two lock systems are nearly identical. The real decision comes down to whether you can operate it gloved, in the cold.',
+    body:[
+      {h:'Weight-wise, it\'s a wash', p:'The lever lock and twist lock differ by just 6g per pole.'},
+      {h:'Where the two diverge: cold weather', p:'Tested at -10°C in thick gloves, the twist lock was hard to torque with any confidence. The lever lock was far less sensitive to glove thickness.', pull:'When the weight is identical, the real difference shows up in how the thing works under bad conditions.'}
+    ]
+  }
+];
+
+const TRAILS = [
+  { id:'t1', type:'trail', cat:'Washington', miniTag:'18.5 mi', icon:'🏔️',
+    title:'The Enchantments core zone: the traverse that breaks half the gear we test',
+    angle:'18 miles and 4,500ft of scrambling is a better shakedown than any lab test.',
+    author:'Dan Kim', date:'Aug 5, 2026',
+    specHead:'TRAIL SPEC', verdictLabel:'Field notes',
+    specRows:[['Distance','18.5 mi'],['Elevation gain','4,500 ft'],['Difficulty','Strenuous'],['Region','Alpine Lakes Wilderness, WA'],['Hiked','Jul 2026']],
+    verdict:'If your gear survives the core zone in a day, it will survive most three-season trips.',
+    body:[
+      {h:'Why we keep coming back here', p:'Granite slab, scree, and a permit lottery that keeps crowds honest — it\'s the hardest day-hike loop we have easy access to for stress-testing footwear and pack fit.'},
+      {h:'Where gear actually failed', p:'Two pairs of trail runners lost tread definition by mile 12. One hip belt buckle cracked on a boulder-hop landing. None of that shows up on a spec sheet.', pull:'A trail like this finds the failure points a lab test is designed to miss.'}
+    ]
+  },
+  { id:'t2', type:'trail', cat:'Washington', miniTag:'93 mi', icon:'⛰️',
+    title:'Wonderland Trail, Mount Rainier: three days circling a volcano',
+    angle:'93 miles, five river crossings, and a lesson in why rain gear ratings mean nothing above 6,000ft.',
+    author:'Seoyeon Park', date:'Aug 8, 2026',
+    specHead:'TRAIL SPEC', verdictLabel:'Field notes',
+    specRows:[['Distance','93 mi'],['Elevation gain','22,000 ft'],['Difficulty','Strenuous'],['Region','Mount Rainier National Park, WA'],['Hiked','Aug 2026']],
+    verdict:'Hydrostatic head numbers describe rain. They don\'t describe four hours of soaked brush.',
+    body:[
+      {h:'Permit reality', p:'The lottery odds are brutal, but a handful of first-come sites open daily at the wilderness office if you show up early.'},
+      {h:'What actually got wet', p:'Rated to 20,000mm, one shell still soaked through at the Tahoma Creek crossing — not from rain, but from bushwhacking through soaked understory for four hours straight.', pull:'A shell\'s rating describes a rainstorm. It doesn\'t describe brush.'}
+    ]
+  },
+  { id:'t3', type:'trail', cat:'California', miniTag:'25 mi', icon:'🌊',
+    title:'Lost Coast Trail: the one hike that finds every leak in your rain shell',
+    angle:'No cell signal, tide-gated beach miles, and weather that changes every twenty minutes.',
+    author:'Minseok Choi', date:'Jun 25, 2026',
+    specHead:'TRAIL SPEC', verdictLabel:'Field notes',
+    specRows:[['Distance','25 mi'],['Elevation gain','3,000 ft'],['Difficulty','Moderate'],['Region','King Range NCA, CA'],['Hiked','Jun 2026']],
+    verdict:'Bring less waterproofing anxiety and more tide-table discipline.',
+    body:[
+      {h:'Tide tables are not optional', p:'Three sections are impassable at high tide. Miss the window and you\'re either waiting six hours or climbing loose scree to bypass.'},
+      {h:'The gear that mattered most', p:'Not the shell — the dry bag liner. Pack covers do nothing when you\'re wading through ankle-deep surf.'}
+    ]
+  }
+];
+
+const AIR = [
+  { id:'a1', type:'air', cat:'Materials', miniTag:null, icon:'📰',
+    title:'PFAS rules are quietly rewriting how rain shells get made',
+    angle:'New state-level restrictions are pushing membrane R&D toward recycled ePTFE faster than marketing decks admit.',
+    author:'Editorial', date:'Aug 6, 2026',
+    specHead:'AT A GLANCE', verdictLabel:'Why it matters',
+    specRows:[['Topic','Materials'],['Filed under','Regulation'],['Published','Aug 6, 2026']],
+    verdict:'Expect more shells labeled "PFAS-free" over the next two seasons — and expect early versions to underperform older DWR coatings until the chemistry catches up.',
+    body:[
+      {h:'What changed', p:'Several states have moved up timelines on intentionally-added PFAS bans in consumer textiles, and waterproof membranes are squarely in scope.'},
+      {h:'What it means for buyers', p:'Reformulated membranes are landing faster than usual, and not every brand has finished tuning breathability and durability to match the old chemistry.'}
+    ]
+  },
+  { id:'a2', type:'air', cat:'Industry', miniTag:null, icon:'♻️',
+    title:'Trade-in programs are turning into a real secondhand gear channel',
+    angle:'More retailers are formalizing buy-back programs, and the resale numbers are starting to matter.',
+    author:'Editorial', date:'Aug 3, 2026',
+    specHead:'AT A GLANCE', verdictLabel:'Why it matters',
+    specRows:[['Topic','Industry'],['Filed under','Retail'],['Published','Aug 3, 2026']],
+    verdict:'For a developer, resale data is early feedback on which products actually survive years of use — sometimes more honest than a warranty claims log.',
+    body:[
+      {h:'What\'s happening', p:'A growing list of outdoor retailers now run formal trade-in credit programs instead of treating resale as an afterthought.'},
+      {h:'The part worth watching', p:'Which categories come back in good shape, and which don\'t, is turning into a quiet source of real-world durability data.'}
+    ]
+  },
+  { id:'a3', type:'air', cat:'Trends', miniTag:null, icon:'🥾',
+    title:'Winter crampons are showing up on gear lists earlier every year',
+    angle:'As shoulder-season conditions get less predictable, more hikers are packing traction gear before the calendar says they should.',
+    author:'Editorial', date:'Jul 30, 2026',
+    specHead:'AT A GLANCE', verdictLabel:'Why it matters',
+    specRows:[['Topic','Trends'],['Filed under','Consumer behavior'],['Published','Jul 30, 2026']],
+    verdict:'A category that used to be strictly seasonal is turning into a year-round line item — worth watching if you design footwear or traction accessories.',
+    body:[
+      {h:'What the pattern looks like', p:'Retailers are reporting earlier-than-usual traction device sales even in regions with historically mild early winters.'},
+      {h:'A developer\'s read on it', p:'Unpredictable shoulder-season ice is a harder design target than a predictable deep-winter one — it demands gear that works across a wider condition range.'}
+    ]
+  }
+];
+
+const ALL = GEAR.concat(TRAILS, AIR);
+const SECTION_META = {
+  gear:{label:'On Spec', eyebrow:'01 / on spec', desc:'Gear item reviews — tents, packs, bags, apparel, and everything else.'},
+  trail:{label:'On Trail', eyebrow:'02 / on trail', desc:'Field reports from the routes we actually hike to test gear.'},
+  air:{label:'On Air', eyebrow:'03 / on air', desc:'What\'s moving in outdoor gear and industry right now.'}
+};
+
+let currentSection = 'gear';
+let currentSubcat = 'All';
+
+function badgeHTML(r, mini){
+  const posStyle = mini ? '' : ' style="position:static;"';
+  if(r.type === 'gear') return r.sponsored
+    ? `<span class="badge sponsored"${posStyle}>SPONSORED</span>`
+    : `<span class="badge"${posStyle}>REVIEW</span>`;
+  if(r.type === 'trail') return `<span class="badge"${posStyle}>TRAIL REPORT</span>`;
+  return `<span class="badge"${posStyle}>NEWS</span>`;
+}
+
+function cardHTML(r){
+  return `<div class="card" onclick="goDetail('${r.id}')">
+    <div class="thumb">
+      <span class="icon">${r.icon}</span>
+      ${badgeHTML(r, true)}
+      ${r.miniTag ? `<span class="spectag-mini">${r.miniTag}</span>` : ''}
+    </div>
+    <div class="meta"><span class="cat">${r.cat}</span><span>·</span><span>${r.date}</span></div>
+    <h3>${r.title}</h3>
+    <p class="angle">${r.angle}</p>
+  </div>`;
+}
+
+function renderHome(){
+  document.getElementById('home-gear-grid').innerHTML = GEAR.slice(0,3).map(cardHTML).join('');
+  document.getElementById('home-trail-grid').innerHTML = TRAILS.slice(0,3).map(cardHTML).join('');
+  document.getElementById('home-air-grid').innerHTML = AIR.slice(0,3).map(cardHTML).join('');
+  document.getElementById('home-cat-strip').innerHTML = GEAR_CATS.filter(c=>c!=='All').map((c,i) =>
+    `<a onclick="goSection('gear'); setSubcat('${c}')"><span class="n">0${i+1}</span>${c}</a>`
+  ).join('');
+}
+
+function renderFilterBar(){
+  const bar = document.getElementById('filter-bar');
+  if(currentSection !== 'gear'){ bar.innerHTML = ''; bar.style.display = 'none'; return; }
+  bar.style.display = 'flex';
+  bar.innerHTML = GEAR_CATS.map(c =>
+    `<span class="chip ${c===currentSubcat?'active':''}" onclick="setSubcat('${c}')">${c}</span>`
+  ).join('');
+}
+
+function renderListGrid(){
+  let items = currentSection === 'gear' ? GEAR : (currentSection === 'trail' ? TRAILS : AIR);
+  if(currentSection === 'gear' && currentSubcat !== 'All') items = items.filter(r => r.cat === currentSubcat);
+  document.getElementById('list-grid').innerHTML = items.map(cardHTML).join('') || '<p style="color:var(--ink-soft); font-size:14px;">Nothing here yet.</p>';
+}
+
+function setSubcat(cat){
+  currentSubcat = cat;
+  renderFilterBar();
+  renderListGrid();
+}
+
+function goSection(section){
+  if(section === 'home'){ showView('home'); window.scrollTo(0,0); return; }
+  currentSection = section;
+  currentSubcat = 'All';
+  const meta = SECTION_META[section];
+  document.getElementById('list-eyebrow').textContent = meta.eyebrow;
+  document.getElementById('list-title').textContent = meta.label;
+  document.getElementById('list-desc').textContent = meta.desc;
+  document.querySelectorAll('#cat-nav a').forEach(a => a.classList.toggle('active', a.dataset.s === section));
+  renderFilterBar();
+  renderListGrid();
+  showView('list');
+  window.scrollTo(0,0);
+}
+
+function goDetail(id){
+  const r = ALL.find(x => x.id === id);
+  if(!r) return;
+
+  document.getElementById('back-link').setAttribute('onclick', `goSection('${r.type}')`);
+  document.getElementById('detail-badges').innerHTML =
+    badgeHTML(r, false) + `<span class="mono" style="font-size:12px; color:var(--steel); font-weight:600;">${r.cat}</span>`;
+  document.getElementById('detail-title').textContent = r.title;
+  document.getElementById('detail-byline').innerHTML = `<b>${r.author}</b> · ${r.date} · ON SPEC`;
+  document.getElementById('detail-icon').textContent = r.icon;
+
+  document.getElementById('detail-body').innerHTML = r.body.map(sec =>
+    `<h2>${sec.h}</h2><p>${sec.p}</p>${sec.pull ? `<div class="pull">${sec.pull}</div>` : ''}`
+  ).join('');
+
+  const rows = r.specRows.map(row => `<div class="sp-row"><span>${row[0]}</span><span>${row[1]}</span></div>`).join('');
+  document.getElementById('detail-spec').innerHTML = `
+    <div class="sp-head">${r.specHead}</div>
+    ${rows}
+    <div class="sp-verdict"><b>${r.verdictLabel}</b>${r.verdict}</div>
+  `;
+
+  showView('detail');
+  window.scrollTo(0,0);
+}
+
+function showView(name){
+  ['home','list','detail'].forEach(v => {
+    document.getElementById('view-'+v).classList.toggle('hidden', v !== name);
+  });
+  if(name === 'home') document.querySelectorAll('#cat-nav a').forEach(a => a.classList.remove('active'));
+}
+
+renderHome();
+showView('home');
+</script>
+
+</body>
+</html>
