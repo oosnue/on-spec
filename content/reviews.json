@@ -1,0 +1,217 @@
+{
+  "items": [
+    {
+      "id": "g1", "type": "gear", "cat": "Backpack", "miniTag": "1,180 g", "icon": "🎒", "sponsored": false,
+      "title": "The Trailmate 45L: pull the frame, and the weight goes where, exactly?",
+      "angle": "Frameless doesn't remove weight — it relocates it, onto your packing skill.",
+      "author": "Dan Kim", "date": "Aug 2, 2026",
+      "specRows": [
+        {"label": "Weight", "value": "1,180 g"},
+        {"label": "Material", "value": "210D ripstop nylon"},
+        {"label": "Waterproofing", "value": "PU coating, 1,500mm"},
+        {"label": "Seams/build", "value": "bonded + stitched"},
+        {"label": "Price", "value": "$179"}
+      ],
+      "verdict": "Cutting the frame reads as clever, but it just shifts the load-bearing job onto the user's pack technique. Fine under 15kg. Below that, it punishes sloppy packing.",
+      "body": [
+        {"h": "Why pull the frame", "p": "The most obvious way to cut weight is to remove the heaviest part. An aluminum stay typically accounts for 12-15% of a pack's total weight. This pack swaps the stay for a single dense foam pad."},
+        {"h": "What the field test showed", "p": "Loosely packed, the back panel collapsed and the load shifted from the hip belt straight to the shoulders. Compressed into a tight roll-top cylinder, though, the foam pad did a passable job standing in for a real frame.", "pull": "This isn't a weight-saving design. It's a design that hands the weight problem to the user."},
+        {"h": "What the stitching says about cost-cutting", "p": "Where the shoulder straps meet the body, the maker layered stitching over a bonded seam — an admission that adhesive alone won't survive repeat loading. That seam held up better than expected."}
+      ]
+    },
+    {
+      "id": "g2", "type": "gear", "cat": "Tent", "miniTag": "1,090 g", "icon": "⛺", "sponsored": true,
+      "title": "A 2-person silnylon shelter at 1,090g — the secret is in the poles",
+      "angle": "Repositioning a pole did more for total weight than any fabric swap could.",
+      "author": "Seoyeon Park", "date": "Jul 28, 2026",
+      "specRows": [
+        {"label": "Weight", "value": "1,090 g"},
+        {"label": "Material", "value": "15D silnylon"},
+        {"label": "Waterproofing", "value": "Silicone coating, 3,000mm"},
+        {"label": "Seams/build", "value": "fully taped"},
+        {"label": "Price", "value": "$395"}
+      ],
+      "verdict": "Fabric-level weight savings are basically maxed out industry-wide. This tent shows where the next round of cuts actually comes from: structure, not material.",
+      "body": [
+        {"h": "It's structure, not fabric", "p": "15D silnylon is close to the industry standard at this point. This tent beats its competitors on weight not because of the fabric, but because it shifted one pole into a diagonal single-pole layout."},
+        {"h": "The trade-off in that diagonal pole", "p": "Total pole length dropped by 18cm, but so did the structure's ability to hold shape in strong wind. Above roughly 27mph, wall flutter was noticeable in the field.", "pull": "When something gets lighter, the review's job is to find out where the stability budget went."},
+        {"h": "A seam-taping detail worth flagging", "p": "Hydrostatic head is solid on paper, but the seam tape width is narrow enough that long-term delamination is a real risk."}
+      ]
+    },
+    {
+      "id": "g3", "type": "gear", "cat": "Sleeping Bag", "miniTag": "760 g", "icon": "🛏️", "sponsored": false,
+      "title": "750-fill goose down, and baffle geometry beat fill power for warmth",
+      "angle": "Same fill power, different baffle layout — and the measured warmth wasn't close.",
+      "author": "Hyunwoo Lee", "date": "Jul 15, 2026",
+      "specRows": [
+        {"label": "Weight", "value": "760 g"},
+        {"label": "Material", "value": "750-fill goose down"},
+        {"label": "Waterproofing", "value": "DWR-treated outer"},
+        {"label": "Seams/build", "value": "box-wall baffles"},
+        {"label": "Price", "value": "$355"}
+      ],
+      "verdict": "A textbook case for why fill-power alone is a bad way to shop for a bag. Baffle construction has to be part of the comparison.",
+      "body": [
+        {"h": "What box-wall baffles actually buy you", "p": "A single-quilt construction lets down migrate and creates cold spots. This bag uses box-wall baffles to physically wall off each section, blocking down migration."},
+        {"h": "Running the weight-to-warmth math", "p": "At 750-fill and 760g total, this bag is packing roughly 8% more down than similarly-rated competitors.", "pull": "One number on a spec sheet never tells you what got cut to hit it."}
+      ]
+    },
+    {
+      "id": "g4", "type": "gear", "cat": "Apparel", "miniTag": "340 g", "icon": "🧥", "sponsored": false,
+      "title": "A 3-layer hard shell that cut seams and traded away margin instead",
+      "angle": "A cleaner pattern with fewer panels saved fabric waste less than expected.",
+      "author": "Minseok Choi", "date": "Jul 3, 2026",
+      "specRows": [
+        {"label": "Weight", "value": "340 g"},
+        {"label": "Material", "value": "3-layer nylon, PU membrane"},
+        {"label": "Waterproofing", "value": "20,000mm / 15,000g breathability"},
+        {"label": "Seams/build", "value": "fully taped"},
+        {"label": "Price", "value": "$495"}
+      ],
+      "verdict": "Cutting panel count is a genuinely good call, mechanically and visually. It just didn't save as much on cost as expected, because cutting waste went up.",
+      "body": [
+        {"h": "Why cut the panel count", "p": "This jacket cuts its raglan shoulder-to-arm pattern as a single piece, reducing a typical 4-panel construction to 2 panels."},
+        {"h": "What that felt like in the field", "p": "The simplified pattern noticeably reduced hem-lift when reaching overhead — very noticeable during climbing movement."},
+        {"h": "The cost side of the ledger", "p": "Cutting one wide piece from the roll produced more scrap than a smaller multi-panel layout would.", "pull": "Cutting seams is always a trade somewhere between waterproofing and cost — never neither."}
+      ]
+    },
+    {
+      "id": "g5", "type": "gear", "cat": "Other Gear", "miniTag": "268 g", "icon": "👟", "sponsored": false,
+      "title": "A 2-degree rocker change in this trail runner's midsole shifted the whole gait",
+      "angle": "Midsole geometry mattered more to fatigue than shoe weight did.",
+      "author": "Haneul Jung", "date": "Jun 20, 2026",
+      "specRows": [
+        {"label": "Weight", "value": "268 g (US9)"},
+        {"label": "Material", "value": "EVA/TPU composite midsole"},
+        {"label": "Waterproofing", "value": "non-waterproof mesh upper"},
+        {"label": "Seams/build", "value": "no-sew bonded upper"},
+        {"label": "Price", "value": "$149"}
+      ],
+      "verdict": "A weight-first spec sheet misses the bigger story here. Rocker geometry made the measurable difference on long miles.",
+      "body": [
+        {"h": "What \"rocker angle\" means", "p": "It's the rotation angle of the foot from ground contact to toe-off. This shoe increased rocker angle by 2 degrees over its predecessor."},
+        {"h": "20 kilometers of field testing", "p": "Calf fatigue was clearly lower — but ground-feel on descents got noticeably duller."}
+      ]
+    },
+    {
+      "id": "g6", "type": "gear", "cat": "Other Gear", "miniTag": "218 g", "icon": "🔦", "sponsored": true,
+      "title": "Lever lock vs. twist lock: the weight difference was 6 grams",
+      "angle": "Weight was a wash. Cold-weather grip is where the two systems actually diverge.",
+      "author": "Dan Kim", "date": "Jun 5, 2026",
+      "specRows": [
+        {"label": "Weight", "value": "218 g (per pole)"},
+        {"label": "Material", "value": "7075 aluminum, 3-section"},
+        {"label": "Waterproofing", "value": "n/a"},
+        {"label": "Seams/build", "value": "n/a"},
+        {"label": "Price", "value": "$89"}
+      ],
+      "verdict": "On paper the two lock systems are nearly identical. The real decision comes down to whether you can operate it gloved, in the cold.",
+      "body": [
+        {"h": "Weight-wise, it's a wash", "p": "The lever lock and twist lock differ by just 6g per pole."},
+        {"h": "Where the two diverge: cold weather", "p": "Tested at -10°C in thick gloves, the twist lock was hard to torque with any confidence. The lever lock was far less sensitive to glove thickness.", "pull": "When the weight is identical, the real difference shows up in how the thing works under bad conditions."}
+      ]
+    },
+    {
+      "id": "t1", "type": "trail", "cat": "Washington", "miniTag": "18.5 mi", "icon": "🏔️",
+      "title": "The Enchantments core zone: the traverse that breaks half the gear we test",
+      "angle": "18 miles and 4,500ft of scrambling is a better shakedown than any lab test.",
+      "author": "Dan Kim", "date": "Aug 5, 2026",
+      "specRows": [
+        {"label": "Distance", "value": "18.5 mi"},
+        {"label": "Elevation gain", "value": "4,500 ft"},
+        {"label": "Difficulty", "value": "Strenuous"},
+        {"label": "Region", "value": "Alpine Lakes Wilderness, WA"},
+        {"label": "Hiked", "value": "Jul 2026"}
+      ],
+      "verdict": "If your gear survives the core zone in a day, it will survive most three-season trips.",
+      "body": [
+        {"h": "Why we keep coming back here", "p": "Granite slab, scree, and a permit lottery that keeps crowds honest — it's the hardest day-hike loop we have easy access to for stress-testing footwear and pack fit."},
+        {"h": "Where gear actually failed", "p": "Two pairs of trail runners lost tread definition by mile 12. One hip belt buckle cracked on a boulder-hop landing. None of that shows up on a spec sheet.", "pull": "A trail like this finds the failure points a lab test is designed to miss."}
+      ]
+    },
+    {
+      "id": "t2", "type": "trail", "cat": "Washington", "miniTag": "93 mi", "icon": "⛰️",
+      "title": "Wonderland Trail, Mount Rainier: three days circling a volcano",
+      "angle": "93 miles, five river crossings, and a lesson in why rain gear ratings mean nothing above 6,000ft.",
+      "author": "Seoyeon Park", "date": "Aug 8, 2026",
+      "specRows": [
+        {"label": "Distance", "value": "93 mi"},
+        {"label": "Elevation gain", "value": "22,000 ft"},
+        {"label": "Difficulty", "value": "Strenuous"},
+        {"label": "Region", "value": "Mount Rainier National Park, WA"},
+        {"label": "Hiked", "value": "Aug 2026"}
+      ],
+      "verdict": "Hydrostatic head numbers describe rain. They don't describe four hours of soaked brush.",
+      "body": [
+        {"h": "Permit reality", "p": "The lottery odds are brutal, but a handful of first-come sites open daily at the wilderness office if you show up early."},
+        {"h": "What actually got wet", "p": "Rated to 20,000mm, one shell still soaked through at the Tahoma Creek crossing — not from rain, but from bushwhacking through soaked understory for four hours straight.", "pull": "A shell's rating describes a rainstorm. It doesn't describe brush."}
+      ]
+    },
+    {
+      "id": "t3", "type": "trail", "cat": "California", "miniTag": "25 mi", "icon": "🌊",
+      "title": "Lost Coast Trail: the one hike that finds every leak in your rain shell",
+      "angle": "No cell signal, tide-gated beach miles, and weather that changes every twenty minutes.",
+      "author": "Minseok Choi", "date": "Jun 25, 2026",
+      "specRows": [
+        {"label": "Distance", "value": "25 mi"},
+        {"label": "Elevation gain", "value": "3,000 ft"},
+        {"label": "Difficulty", "value": "Moderate"},
+        {"label": "Region", "value": "King Range NCA, CA"},
+        {"label": "Hiked", "value": "Jun 2026"}
+      ],
+      "verdict": "Bring less waterproofing anxiety and more tide-table discipline.",
+      "body": [
+        {"h": "Tide tables are not optional", "p": "Three sections are impassable at high tide. Miss the window and you're either waiting six hours or climbing loose scree to bypass."},
+        {"h": "The gear that mattered most", "p": "Not the shell — the dry bag liner. Pack covers do nothing when you're wading through ankle-deep surf."}
+      ]
+    },
+    {
+      "id": "a1", "type": "air", "cat": "Materials", "icon": "📰",
+      "title": "PFAS rules are quietly rewriting how rain shells get made",
+      "angle": "New state-level restrictions are pushing membrane R&D toward recycled ePTFE faster than marketing decks admit.",
+      "author": "Editorial", "date": "Aug 6, 2026",
+      "specRows": [
+        {"label": "Topic", "value": "Materials"},
+        {"label": "Filed under", "value": "Regulation"},
+        {"label": "Published", "value": "Aug 6, 2026"}
+      ],
+      "verdict": "Expect more shells labeled \"PFAS-free\" over the next two seasons — and expect early versions to underperform older DWR coatings until the chemistry catches up.",
+      "body": [
+        {"h": "What changed", "p": "Several states have moved up timelines on intentionally-added PFAS bans in consumer textiles, and waterproof membranes are squarely in scope."},
+        {"h": "What it means for buyers", "p": "Reformulated membranes are landing faster than usual, and not every brand has finished tuning breathability and durability to match the old chemistry."}
+      ]
+    },
+    {
+      "id": "a2", "type": "air", "cat": "Industry", "icon": "♻️",
+      "title": "Trade-in programs are turning into a real secondhand gear channel",
+      "angle": "More retailers are formalizing buy-back programs, and the resale numbers are starting to matter.",
+      "author": "Editorial", "date": "Aug 3, 2026",
+      "specRows": [
+        {"label": "Topic", "value": "Industry"},
+        {"label": "Filed under", "value": "Retail"},
+        {"label": "Published", "value": "Aug 3, 2026"}
+      ],
+      "verdict": "For a developer, resale data is early feedback on which products actually survive years of use — sometimes more honest than a warranty claims log.",
+      "body": [
+        {"h": "What's happening", "p": "A growing list of outdoor retailers now run formal trade-in credit programs instead of treating resale as an afterthought."},
+        {"h": "The part worth watching", "p": "Which categories come back in good shape, and which don't, is turning into a quiet source of real-world durability data."}
+      ]
+    },
+    {
+      "id": "a3", "type": "air", "cat": "Trends", "icon": "🥾",
+      "title": "Winter crampons are showing up on gear lists earlier every year",
+      "angle": "As shoulder-season conditions get less predictable, more hikers are packing traction gear before the calendar says they should.",
+      "author": "Editorial", "date": "Jul 30, 2026",
+      "specRows": [
+        {"label": "Topic", "value": "Trends"},
+        {"label": "Filed under", "value": "Consumer behavior"},
+        {"label": "Published", "value": "Jul 30, 2026"}
+      ],
+      "verdict": "A category that used to be strictly seasonal is turning into a year-round line item — worth watching if you design footwear or traction accessories.",
+      "body": [
+        {"h": "What the pattern looks like", "p": "Retailers are reporting earlier-than-usual traction device sales even in regions with historically mild early winters."},
+        {"h": "A developer's read on it", "p": "Unpredictable shoulder-season ice is a harder design target than a predictable deep-winter one — it demands gear that works across a wider condition range."}
+      ]
+    }
+  ]
+}
