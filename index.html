@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 <style>
   :root{
     --paper:#F3F4EE;
@@ -122,7 +123,7 @@
   .article-body h2{font-size:19px; font-weight:700; margin:36px 0 14px;}
   .article-body h2:first-child{margin-top:0;}
   .article-body p{font-size:15px; color:#2C332E; line-height:1.85; margin-bottom:14px;}
-  .article-body .pull{border-left:3px solid var(--stamp); padding:4px 0 4px 18px; font-size:15px; color:var(--ink); font-weight:500; margin:24px 0;}
+  .article-body .pull, .article-body blockquote{border-left:3px solid var(--stamp); padding:4px 0 4px 18px; font-size:15px; color:var(--ink); font-weight:500; margin:24px 0;}
   .spec-panel{border:1px solid var(--ink); position:sticky; top:90px; height:fit-content;}
   .spec-panel .sp-head{background:var(--ink); color:var(--paper); font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:2px; padding:12px 16px;}
   .spec-panel .sp-row{display:flex; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid var(--line); font-size:13px;}
@@ -331,11 +332,14 @@ function goDetail(id){
   document.getElementById('detail-byline').innerHTML = `<b>${r.author}</b> · ${r.date} · ON SPEC`;
   document.getElementById('detail-icon').textContent = r.icon;
 
-  document.getElementById('detail-body').innerHTML = r.body.map(sec =>
-    `<h2>${sec.h}</h2><p>${sec.p}</p>${sec.pull ? `<div class="pull">${sec.pull}</div>` : ''}`
-  ).join('');
+  document.getElementById('detail-body').innerHTML = marked.parse(r.body || '');
 
-  const rows = r.specRows.map(row => `<div class="sp-row"><span>${row.label}</span><span>${row.value}</span></div>`).join('');
+  const rows = (r.specText || '').split('\n').filter(line => line.trim()).map(line => {
+    const idx = line.indexOf(':');
+    const label = idx === -1 ? line : line.slice(0, idx).trim();
+    const value = idx === -1 ? '' : line.slice(idx + 1).trim();
+    return `<div class="sp-row"><span>${label}</span><span>${value}</span></div>`;
+  }).join('');
   document.getElementById('detail-spec').innerHTML = `
     <div class="sp-head">${meta.specHead}</div>
     ${rows}
